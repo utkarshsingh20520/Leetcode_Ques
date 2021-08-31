@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+       vector <int> ans;
+       vector<int> a; 
+       int len=boxes.length();
+       int i,j;
+       for(j=0;j<len;j++){
+          int num = (int)boxes[j] - 48;  
+          a.push_back(num); 
+       }
+       for(i=0;i<len;i++){
+           int count=0;
+           for(j=0;j<len;j++){
+               if(a[j]==1)
+                   count+=abs(i-j);
+           }
+           ans.push_back(count);
+       }
+        return ans;
+    }
+};
