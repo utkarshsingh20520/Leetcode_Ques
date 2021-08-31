@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> processQueries(vector<int>& queries, int m) {
+       int i;
+       vector<int> arr;
+       vector<int> ans;
+       for(i=1;i<=m;i++)
+        arr.push_back(i);
+       for(i=0;i<queries.size();i++){
+         int index=-1;
+         auto it = find(arr.begin(), arr.end(), queries[i]); 
+         index=  it-arr.begin();
+         arr.erase(arr.begin()+index);
+         ans.push_back(index);
+         arr.insert(arr.begin(), queries[i]); 
+       }
+        return ans;
+    }
+};
