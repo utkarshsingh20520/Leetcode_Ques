@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<vector<int>> groupThePeople(vector<int>& gr) {
+        map<int , vector<int>> ma;
+        vector<vector<int>> ans;
+        for(int i=0;i<gr.size();i++){
+            ma[gr[i]].push_back(i);
+            
+            if(ma[gr[i]].size() == gr[i])
+            { ans.push_back(ma[gr[i]]);
+              ma[gr[i]].clear();}
+        }
+        
+        return ans;
+    }
+};
