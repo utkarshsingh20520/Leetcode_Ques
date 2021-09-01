@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k) {
+      int i;
+      vector<int> ans(k, 0);
+      map<int,set<int>> m;
+      for(i=0;i<logs.size();i++){
+          m[logs[i][0]].insert(logs[i][1]);
+      }
+      for (auto [key, val] :  m)
+           ans[val.size() - 1] += 1;
+      return ans;  
+        
+    }
+};
