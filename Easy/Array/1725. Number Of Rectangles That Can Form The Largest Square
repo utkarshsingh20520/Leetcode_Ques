@@ -1,0 +1,19 @@
+
+class Solution {
+public:
+    int countGoodRectangles(vector<vector<int>>& rec) {
+        
+        vector<int> v;
+        for(int i = 0; i<rec.size(); i++)
+            v.push_back(min(rec[i][0], rec[i][1]));
+        
+        int max = *max_element(v.begin(), v.end());
+        int ans = 0;
+        for(int i = 0; i<v.size(); i++)
+        {
+            if(v[i] == max)
+                ans++;
+        }
+        return ans;
+    }
+};
