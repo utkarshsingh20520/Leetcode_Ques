@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxIncreaseKeepingSkyline(vector<vector<int>>& grid) {
-        int i,ma,j;
+        int i,ma,j,k;
        vector<int> hor;
        vector<int> ver;
        for(i=0;i<grid.size();i++){
