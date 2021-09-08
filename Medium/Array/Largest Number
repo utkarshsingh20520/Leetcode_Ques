@@ -1,0 +1,43 @@
+class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+      sort(nums.begin(), nums.end(), boolcheck);   
+      string ans ="";
+      // int i,temp,j;
+      // for(i=0;i<nums.size()-1;i++){         
+      //     for(j=i;j<nums.size();j++){              
+      //         int k = boolcheck(nums[i],nums[j]);
+      //         if(!k)
+      //         {
+      //            temp = nums[i];
+      //            nums[i] = nums[j];
+      //            nums[j] = temp; 
+      //         }
+      //     }          
+      // }  
+      
+//       for(auto it:nums){
+//           ans+=to_string(nums[it]);
+//       }  
+       
+//         return ans;
+        
+      
+        for(int i=0; i<nums.size(); ++i) {
+            if(ans == "" && nums[i] == 0) 
+                continue;
+            ans += to_string(nums[i]);
+        }
+        return ans == "" ? "0" : ans;
+    }
+    
+    
+    static bool boolcheck(int aa, int ba){
+              string a = to_string(aa);
+              string b = to_string(ba);
+              
+              string s1 = a+b, s2=b+a;
+              
+              return s1>s2;
+    }
+};
