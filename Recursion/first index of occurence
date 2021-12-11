@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int rec(int arr[],int n,int i,int t){
+    if(i==n)
+     return -1;
+    int li = rec(arr,n,i+1,t);
+    if(li==-1){
+        if(arr[i]==t)
+         return i;
+        else
+         return -1;
+    }
+    else{
+        if(arr[i]==t)
+         return i;
+        else
+         return li;
+    }
+}
+
+
+int main(){
+    int arr[] = {1,4,3,2,1,2,2,2,1,1};
+    int target = 2;
+    int ans = rec(arr,10,0,2);
+    cout<<ans;
+    
+}
