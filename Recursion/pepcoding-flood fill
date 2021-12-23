@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+ int m,n;
+
+  void floodfill(int a[][], int r, int c, int visited[][], string t){
+     if(r == -1 || c == -1 || r==a.length() || c == a[0].length() ||  a[r][c]==1 || visited[r][c] ) 
+       return;
+     
+     if( r== a.length()-1 && c==a[0].length())
+      {
+          cout<<t<<endl;
+          return;
+      }
+      
+      visited[r][c] == true;
+      floodfill(a,r-1,c,"t" + t);
+      floodfill(a,r,c+1,"r" + t);
+      floodfill(a,r+1,c,"d" + t);
+      floodfill(a,r,c-1,"l" + t);
+      visited[r][c] = false;
+  }
+    
+int main(){
+   
+    cin>>m>>n;
+    int arr[10][10];
+    
+    for(int i=0;i<m;i++)
+      for(int j=0;j<n;j++)
+         cin>>arr[i][j];
+         
+    bool visited[m][n] = false;  
+    string temp="";
+    floodfill(arr,0,0,visited,temp);
+    
+}
