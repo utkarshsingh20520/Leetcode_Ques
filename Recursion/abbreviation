@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+
+void abbreviation(int n,string s,int count,string t){
+    
+    if(n==t.size()){
+        if(count != 0){
+            string ar = "";
+            ar = s + to_string(count);
+            cout<<ar<<endl;
+            return;
+        }
+        cout<<s<<endl;
+        return;
+    }
+    for(int i=n; i<t.size();i++){
+        if(count == 0){
+          string xy = s + t[i];        
+          abbreviation(i+1,xy,0,t); 
+          abbreviation(i+1, s , count+1 , t);
+          return;
+        }
+        else{
+          string xy = s + to_string(count);    
+          string yx = xy + t[i];
+          abbreviation(i+1,yx,0,t); 
+          abbreviation(i+1, s , count+1 , t);
+          return;
+        }
+    }
+}
+
+int main() {
+	string t = "pep",s="";
+	int count =0;
+	abbreviation(0,s,count,t);
+	return 0;
+}
